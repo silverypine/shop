@@ -17,4 +17,9 @@ public class ProductController {
 	public String insertForm() {
 		return "product/insertForm";
 	}
+	
+	@RequestMapping(value = "/product/listForm", method = RequestMethod.GET)
+	public String listForm() {
+		return "product/listForm";
+	}
 }
