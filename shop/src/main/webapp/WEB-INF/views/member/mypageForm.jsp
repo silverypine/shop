@@ -30,7 +30,7 @@
         <header class="bg-light py-3">
             <div class="container px-4 px-lg-5">
                 <div class="memberinfo">
-                    <button type="button" onclick="location.href='memberinfo.jsp'" class="btn btn-outline-dark btn-sm" >member info</button>
+                    <button type="button" onclick="location.href='/member/infoForm'" class="btn btn-outline-dark btn-sm" >member info</button>
                 </div>
                 <div class="row gx-4 gx-lg-4 row-cols-2 row-cols-md-6  justify-content-center">
                     <table class="tg">

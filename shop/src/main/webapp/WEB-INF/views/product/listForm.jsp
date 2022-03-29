@@ -15,7 +15,9 @@
 <div class="container w-75">
 	<div class="row">
 		<div class="col-6 mt-3 mb-3 d-flex justify-content-start">
-			<h1>ShoppingMall</h1>
+			<a href="/product/insertForm" style="text-decoration: none;">
+				<span style="font-size: xx-large; color: black;">ShoppingMall</span>
+			</a>
 		</div>
 		<div class="col-6 mt-3 mb-3 d-flex justify-content-end">
 			<input type="button" class="btn btn-primary" value="로그아웃">
@@ -33,10 +35,10 @@
 	    			</h2>
 	    			<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
 	      				<div class="list-group">
-	  						<a href="#" class="list-group-item list-group-item-action" aria-current="true">
+	  						<a href="/product/insertForm" class="list-group-item list-group-item-action" aria-current="true">
 	    						상품 등록
 	  						</a>
-	  						<a href="#" class="list-group-item list-group-item-action active">상품 목록</a>
+	  						<a href="/product/listForm" class="list-group-item list-group-item-action active">상품 목록</a>
 						</div>
 	    			</div>
 				</div>
@@ -48,10 +50,10 @@
 				    </h2>
 		    		<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
 		      			<div class="list-group">
-		  					<a href="#" class="list-group-item list-group-item-action" aria-current="true">
+		  					<a href="/order/listForm" class="list-group-item list-group-item-action" aria-current="true">
 		    					전체주문목록
 		  					</a>
-		  					<a href="#" class="list-group-item list-group-item-action">배송관리</a>
+		  					<a href="/order/beforePaymentForm" class="list-group-item list-group-item-action">배송관리</a>
 						</div>
 		    		</div>
 		    	</div>

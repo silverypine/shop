@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
             <!-- LOGO -->
-            <a class="navbar-brand flex-grow-1" href="#"><span>SHOPPING MALL</span></a>
+            <a class="navbar-brand flex-grow-1" href="/"><span>SHOPPING MALL</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <!-- SEARCH -->
@@ -18,12 +18,12 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2">
                       <div class="navbar-nav ml-auto">
 
-                      <a class="dropdown-item" href="addMember.jsp">join</a>
-                      <a class="dropdown-item" href="login.jsp">login</a>
+                      <a class="dropdown-item" href="/member/joinForm">join</a>
+                      <a class="dropdown-item" href="/member/loginForm">login</a>
               
                       <!-- <a class="dropdown-item" data-toggle="modal" href="#registerModal">마이페이지</a> -->
-                      <a class="dropdown-item" href="bookmarkPage.jsp">cart</a>
-                      <a class="dropdown-item" href="myWritePage.jsp">mypage</a>
+                      <a class="dropdown-item" href="/cart/listForm">cart</a>
+                      <a class="dropdown-item" href="/member/mypageForm">mypage</a>
                       <a class="dropdown-item" href="logoutAction.jsp">logout</a>
                       </div>
                 </ul>
