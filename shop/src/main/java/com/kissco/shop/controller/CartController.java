@@ -13,8 +13,8 @@ public class CartController {
 	@Autowired
 	private CartService sv;
 	
-	@RequestMapping(value = "/cart/cartList", method = RequestMethod.GET)
+	@RequestMapping(value = "/cart/listForm", method = RequestMethod.GET)
 	public String listForm() {
-		return "cart/cartList";
+		return "cart/listForm";
 	}
 }
