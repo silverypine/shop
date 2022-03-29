@@ -23,6 +23,7 @@
     <title>mypage</title>
   </head>
 <body>
+
 <jsp:include page="../header.jsp"></jsp:include>
 <!-- Section-->
     <section>
