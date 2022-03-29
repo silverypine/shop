@@ -22,4 +22,9 @@ public class ProductController {
 	public String listForm() {
 		return "product/listForm";
 	}
+	
+	@RequestMapping(value = "/product/infoForm", method = RequestMethod.GET)
+	public String infoForm() {
+		return "product/infoForm";
+	}
 }

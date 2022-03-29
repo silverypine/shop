@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>paking</title>
+<title>onDelivery</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="/resources/js/jquery-3.6.0.js"></script>
@@ -62,19 +62,19 @@
 			<h4 class="mb-3">배송관리</h4>
 			
 			<div class="list-group list-group-horizontal mb-5">
-			  	<a href="/order/beforePayment" class="list-group-item list-group-item-action" aria-current="true">
+			  	<a href="/order/beforePaymentForm" class="list-group-item list-group-item-action" aria-current="true">
 				    결제전
 					<br>0
 			  	</a>
-			  	<a href="/order/paking" class="list-group-item list-group-item-action active">
+			  	<a href="/order/pakingForm" class="list-group-item list-group-item-action">
 			  		배송준비중
 					<br>0
 			  	</a>
-			  	<a href="/order/onDelivery" class="list-group-item list-group-item-action">
+			  	<a href="/order/onDeliveryForm" class="list-group-item list-group-item-action active">
 			  		배송중
 					<br>0
 			  	</a>
-			  	<a href="/order/deliveryOver" class="list-group-item list-group-item-action">
+			  	<a href="/order/deliveryOverForm" class="list-group-item list-group-item-action">
 			  		배송완료
 					<br>0
 			  	</a>
@@ -93,7 +93,7 @@
 			    	<input type="button" class="btn btn-primary" value="검색">
 			  	</div>
 			  	<div class="col mb-3">
-			  		<input type="button" class="btn btn-primary" value="배송중 처리">
+			  		<input type="button" class="btn btn-primary" value="배송완료 처리">
 			  	</div>
 			</div>
 			
@@ -108,8 +108,9 @@
 							    <th scope="col">주문일</th>
 							    <th scope="col">주문코드</th>
 						      	<th scope="col">주문자</th>
-						      	<th scope="col">상품명</th>
+						      	<th scope="col">배송일</th>
 						      	<th scope="col">운송장정보</th>
+						      	<th scope="col">상품명</th>
 						      	<th scope="col">수량</th>
 						      	<th scope="col">결제금액</th>
 					    	</tr>
@@ -122,15 +123,9 @@
 						    	<td>주문일</td>
 						    	<td>주문코드</td>
 						    	<td>주문자</td>
+						    	<td>배송일</td>
+						    	<td>운송장정보</td>
 						    	<td>상품명</td>
-						    	<td>
-									<select class="form-select" name="courierCompany">
-										<option value="CJ대한통운">CJ대한통운</option>
-										<option value="우체국택배">우체국택배</option>
-									</select>
-									<input type="text" class="form-control">
-									<input type="button" class="btn btn-primary" value="송장번호 저장">
-						    	</td>
 						    	<td>수량</td>
 						    	<td>결제금액</td>
 						    </tr>
@@ -141,15 +136,9 @@
 						    	<td>주문일</td>
 						    	<td>주문코드</td>
 						    	<td>주문자</td>
+						    	<td>배송일</td>
+						    	<td>운송장정보</td>
 						    	<td>상품명</td>
-						    	<td>
-									<select class="form-select" name="courierCompany">
-										<option value="CJ대한통운">CJ대한통운</option>
-										<option value="우체국택배">우체국택배</option>
-									</select>
-									<input type="text" class="form-control">
-									<input type="button" class="btn btn-primary" value="송장번호 저장">
-						    	</td>
 						    	<td>수량</td>
 						    	<td>결제금액</td>
 						    </tr>
@@ -160,15 +149,9 @@
 						    	<td>주문일</td>
 						    	<td>주문코드</td>
 						    	<td>주문자</td>
+						    	<td>배송일</td>
+						    	<td>운송장정보</td>
 						    	<td>상품명</td>
-						    	<td>
-									<select class="form-select" name="courierCompany">
-										<option value="CJ대한통운">CJ대한통운</option>
-										<option value="우체국택배">우체국택배</option>
-									</select>
-									<input type="text" class="form-control">
-									<input type="button" class="btn btn-primary" value="송장번호 저장">
-						    	</td>
 						    	<td>수량</td>
 						    	<td>결제금액</td>
 						    </tr>
