@@ -17,7 +17,6 @@
 <body>
 
 <div class="container">
-	<h1>LOGO</h1>
 	
 	<div class="title">
 	<h3>LOGIN</h3>

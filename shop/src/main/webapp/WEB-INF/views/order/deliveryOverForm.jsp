@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>onDelivery</title>
+<title>deliveryOver</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="/resources/js/jquery-3.6.0.js"></script>
@@ -62,19 +62,19 @@
 			<h4 class="mb-3">배송관리</h4>
 			
 			<div class="list-group list-group-horizontal mb-5">
-			  	<a href="/order/beforePayment" class="list-group-item list-group-item-action" aria-current="true">
+			  	<a href="/order/beforePaymentForm" class="list-group-item list-group-item-action" aria-current="true">
 				    결제전
 					<br>0
 			  	</a>
-			  	<a href="/order/paking" class="list-group-item list-group-item-action">
+			  	<a href="/order/pakingForm" class="list-group-item list-group-item-action">
 			  		배송준비중
 					<br>0
 			  	</a>
-			  	<a href="/order/onDelivery" class="list-group-item list-group-item-action active">
+			  	<a href="/order/onDeliveryForm" class="list-group-item list-group-item-action">
 			  		배송중
 					<br>0
 			  	</a>
-			  	<a href="/order/deliveryOver" class="list-group-item list-group-item-action">
+			  	<a href="/order/deliveryOverForm" class="list-group-item list-group-item-action active">
 			  		배송완료
 					<br>0
 			  	</a>
@@ -91,9 +91,6 @@
 			  	</div>
 			  	<div class="col-1 mb-5">
 			    	<input type="button" class="btn btn-primary" value="검색">
-			  	</div>
-			  	<div class="col mb-3">
-			  		<input type="button" class="btn btn-primary" value="배송완료 처리">
 			  	</div>
 			</div>
 			

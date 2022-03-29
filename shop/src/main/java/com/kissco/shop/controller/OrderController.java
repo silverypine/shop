@@ -18,23 +18,23 @@ public class OrderController {
 		return "order/listForm";
 	}
 	
-	@RequestMapping(value = "/order/beforePayment", method = RequestMethod.GET)
-	public String beforeDeposit() {
-		return "order/beforePayment";
+	@RequestMapping(value = "/order/beforePaymentForm", method = RequestMethod.GET)
+	public String beforePaymentForm() {
+		return "order/beforePaymentForm";
 	}
 	
-	@RequestMapping(value = "/order/paking", method = RequestMethod.GET)
+	@RequestMapping(value = "/order/pakingForm", method = RequestMethod.GET)
 	public String paking() {
-		return "order/paking";
+		return "order/pakingForm";
 	}
 	
-	@RequestMapping(value = "/order/onDelivery", method = RequestMethod.GET)
+	@RequestMapping(value = "/order/onDeliveryForm", method = RequestMethod.GET)
 	public String onDelivery() {
-		return "order/onDelivery";
+		return "order/onDeliveryForm";
 	}
 	
-	@RequestMapping(value = "/order/deliveryOver", method = RequestMethod.GET)
+	@RequestMapping(value = "/order/deliveryOverForm", method = RequestMethod.GET)
 	public String deliveryOver() {
-		return "order/deliveryOver";
+		return "order/deliveryOverForm";
 	}
 }
