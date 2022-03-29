@@ -37,6 +37,7 @@
 </style>
 </head>
 <body style="height: 100%;">
+<jsp:include page="../header.jsp"></jsp:include>
 	<div class="container m-5 pt-5" style="text-align:center;">
 		<div class="d-flex justify-content-center">
 			<!-- 상품이미지 -->
@@ -99,5 +100,6 @@
 		}, 1000);
 	});
 	</script>
+	<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
