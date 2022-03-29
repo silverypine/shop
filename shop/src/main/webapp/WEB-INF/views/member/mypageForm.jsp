@@ -23,6 +23,8 @@
     <title>mypage</title>
   </head>
 <body>
+
+<jsp:include page="../header.jsp"></jsp:include>
 <!-- Section-->
     <section>
         <header class="bg-light py-3">
@@ -86,6 +88,6 @@
             </div>
         </header>
     </section>
-
+<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
