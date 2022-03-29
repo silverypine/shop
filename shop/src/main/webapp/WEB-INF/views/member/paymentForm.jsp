@@ -23,18 +23,17 @@
     <title>payment</title>
   </head>
   <body>
+  <jsp:include page="../header.jsp"></jsp:include>
   <!-- Section-->
+    <!-- Section-->
     <section>
         <header class="bg-light py-3">
             <div class="container px-4 px-lg-5">
-                <div class="memberinfo">
-                    <button type="button" onclick="location.href='memberinfo.jsp'" class="btn btn-outline-dark btn-sm" >member info</button>
-                </div>
                 <div class="row gx-4 gx-lg-4 row-cols-2 row-cols-md-6  justify-content-center">
                     <table class="tg">
                         <thead>
                           <tr>
-                            <th class="tg-0" colspan="4">payment list</th>
+                            <th class="tg-0" colspan="4">payment</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -68,24 +67,26 @@
                             <td class="tg-0">purchase quantity</td>
                             <td class="tg-0">product price</td>
                           </tr>
-                          <tr>
-                            <td class="tg-1">image</td>
-                            <td class="tg-0">product name</td>
-                            <td class="tg-0">purchase quantity</td>
-                            <td class="tg-0">product price</td>
-                          </tr>
-                          <tr>
-                            <td class="tg-1">image</td>
-                            <td class="tg-0">product name</td>
-                            <td class="tg-0">purchase quantity</td>
-                            <td class="tg-0">product price</td>
-                          </tr>
                     </tbody>
                     </table>
+                </div>
+                <div class="member">
+                    <p>member name<span>&nbsp&nbsp&nbsp&nbsp&nbsp홍길동</span></p>
+                    <p>member phone<span>&nbsp&nbsp&nbsp&nbsp010123456789</span></p>
+                    <p>member address<span>&nbsp&nbspSEOUL</span></p>
+                </div>
+                <div class="total">
+                    <p>total price<span>&nbsp&nbsp얼마입니다</span></p>
+                </div>
+                <div class="payment">
+                    <div class="d-grid gap-2 col-4 mx-auto">
+                        <button class="btn btn-outline-dark" type="submit" onclick="location='payment.jsp'">PAYMENT</button>
+                    </div>
                 </div>
             </div>
         </header>
     </section>
+    <jsp:include page="../footer.jsp"></jsp:include>
   <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
