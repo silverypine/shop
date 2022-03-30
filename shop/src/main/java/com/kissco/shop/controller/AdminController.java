@@ -14,7 +14,12 @@ public class AdminController {
 	private AdminService sv;
 	
 	@RequestMapping(value = "/admin/joinForm", method = RequestMethod.GET)
-	public String listForm() {
+	public String joinForm() {
 		return "admin/joinForm";
+	}
+	
+	@RequestMapping(value = "/admin/loginForm", method = RequestMethod.GET)
+	public String loginForm() {
+		return "admin/loginForm";
 	}
 }
