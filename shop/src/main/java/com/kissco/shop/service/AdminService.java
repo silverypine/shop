@@ -35,7 +35,7 @@ public class AdminService {
 			path = "redirect:/admin/loginForm";
 		} else if (inputData.getAdminPw().equals(searchData.getAdminPw())) {
 			ss.setAttribute("loginId", searchData.getAdminId());
-			path = "redirect:/";
+			path = "redirect:/product/insertForm";
 		} else {
 			path = "redirect:/admin/loginForm";
 		}

@@ -11,7 +11,7 @@ insert into
 	shop_admin(
 		admin_id
 		,admin_pw
-	 	,adimin_nm
+	 	,admin_nm
 	 )values(
 		#{adminId}
 		,#{adminPw}

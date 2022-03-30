@@ -61,27 +61,27 @@
 		</div>
 		
 		<div class="col-10">
-			<form action="/product/insert" method="post" enctype="multipart/form-data">
-				<h4 class="mb-3">상품 등록</h4>
+			<form action="/product/update?productCode=${p.productCode}" method="post" enctype="multipart/form-data">
+				<h4 class="mb-3">상품 수정</h4>
 			  	<div class="col mb-3">
 			    	<label for="productName" class="form-label">상품명</label>
-			    	<input type="text" class="form-control" id="productName" name="productName">
+			    	<input type="text" class="form-control" id="productName" name="productName" value="${p.productName }">
 			  	</div>
 			  	<div class="col mb-3">
 			    	<label for="productPrice" class="form-label">판매가</label>
-			    	<input type="text" class="form-control" id="productPrice" name="productPrice">
+			    	<input type="text" class="form-control" id="productPrice" name="productPrice" value="${p.productPrice }">
 			  	</div>
 			  	<div class="col mb-3">
 			    	<label for="productCode" class="form-label">상품코드</label>
-			    	<input type="text" class="form-control" id="productCode" name="productCode">
+			    	<input type="text" class="form-control" id="productCode" name="productCode" value="${p.productCode }" disabled>
 			  	</div>
 			  	<div class="col mb-3">
 			    	<label for="productStock" class="form-label">상품재고</label>
-			    	<input type="text" class="form-control" id="productStock" name="productStock">
+			    	<input type="text" class="form-control" id="productStock" name="productStock" value="${p.productStock }">
 			  	</div>
 			  	<div class="col mb-3">
 			    	<label for="productContent" class="form-label">상품설명</label>
-			    	<input type="text" class="form-control" id="productContent" name="productContent">
+			    	<input type="text" class="form-control" id="productContent" name="productContent" value="${p.productContent }">
 			  	</div>
 			  	<div class="col mb-3">
 			    	<label class="form-label">상품분류</label>
@@ -97,10 +97,12 @@
 			  	<div class="col mb-3">
 			    	<label for="memberAddress" class="form-label">상품이미지</label>
 			    	<br>
+			    	<img alt="${p.productOriginalfilename}" src="/product/loadImage?fileName=${p.productSavedfilename }">
+			    	<br>
 			    	<input type="file" name="upload">
 			  	</div>
 			  	<div class="col">
-			    	<input type="submit" class="btn btn-primary" value="상품 등록">
+			    	<input type="submit" class="btn btn-primary" value="상품 수정">
 			  	</div>
 			</form>
 		</div>

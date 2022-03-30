@@ -1,11 +1,21 @@
 package com.kissco.shop.controller;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kissco.shop.service.ProductService;
+import com.kissco.shop.vo.ProductVO;
 
 @Controller
 public class ProductController {
@@ -19,12 +29,45 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/product/listForm", method = RequestMethod.GET)
-	public String listForm() {
+	public String listForm(Model model) {
+		ArrayList<ProductVO> list = sv.allProductList();
+		model.addAttribute("list", list);
 		return "product/listForm";
 	}
 	
 	@RequestMapping(value = "/product/infoForm", method = RequestMethod.GET)
 	public String infoForm() {
 		return "product/infoForm";
+	}
+	
+	@RequestMapping(value = "/product/insert", method = RequestMethod.POST)
+	public String insertProduct(ProductVO product, MultipartFile upload) {
+		return sv.insertProduct(product, upload);
+	}
+	
+	@RequestMapping(value = "/product/loadImage", method = RequestMethod.GET)
+	public String loadImage(String fileName, HttpServletResponse response) throws IOException {
+		response.setContentType("image/jpg");
+	    ServletOutputStream bout = response.getOutputStream();
+		String imagePath = "C:/productUpload/" + fileName;
+		FileInputStream f = new FileInputStream(imagePath);
+		int length;
+		byte[] buffer = new byte[10];
+		while((length=f.read(buffer)) != -1){
+			bout.write(buffer,0,length);
+		}
+		return null;
+	}
+	
+	@RequestMapping(value = "/product/updateForm", method = RequestMethod.GET)
+	public String updateForm(String productCode, Model model) {
+		ProductVO product = sv.OneProduct(productCode);
+		model.addAttribute("p", product);
+		return "product/updateForm";
+	}
+	
+	@RequestMapping(value = "/product/update", method = RequestMethod.POST)
+	public String update(ProductVO product, MultipartFile upload) {
+		return sv.updateProduct(product, upload);
 	}
 }
