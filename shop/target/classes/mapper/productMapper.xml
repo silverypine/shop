@@ -5,4 +5,82 @@
 
 <mapper namespace="com.kissco.shop.dao.ProductMapper">
 
+<insert id="insertProduct" parameterType="product">
+INSERT INTO 
+	shop_product(
+		product_code
+		,product_category
+		,product_name
+		,product_price
+		,product_stock
+		,product_content
+	<if test="productOriginalfilename != null">
+		,product_originalfilename
+		,product_savedfilename
+	</if>
+	)VALUES(
+		#{productCode}
+		,#{productCategory}
+		,#{productName}
+		,#{productPrice}
+		,#{productStock}
+		,#{productContent}
+	<if test="productOriginalfilename != null">
+		,#{productOriginalfilename}
+		,#{productSavedfilename}
+	</if>
+	)
+</insert>
+
+<select id="allProductList" resultType="product">
+SELECT
+	product_code as productCode
+	,product_category as productCategory
+	,product_name as productName
+	,product_price as productPrice
+	,product_stock as productStock
+	,product_originalfilename as productOriginalfilename
+	,product_savedfilename as productSavedfilename
+	,product_regdate as productRegdate
+	,product_content as productContent
+FROM
+	shop_product
+ORDER BY
+	product_regdate DESC
+</select>
+
+<select id="OneProduct" resultType="product" parameterType="String">
+SELECT
+	product_code as productCode
+	,product_category as productCategory
+	,product_name as productName
+	,product_price as productPrice
+	,product_stock as productStock
+	,product_originalfilename as productOriginalfilename
+	,product_savedfilename as productSavedfilename
+	,product_regdate as productRegdate
+	,product_content as productContent
+FROM
+	shop_product
+WHERE
+	product_code = #{productCode}
+</select>
+
+<update id="updateProduct" parameterType="product">
+UPDATE
+	shop_product
+SET
+	product_category = #{productCategory}
+	,product_name = #{productName}
+	,product_price = #{productPrice}
+	,product_stock = #{productStock}
+	,product_content = #{productContent}
+	<if test="productOriginalfilename != null">
+		,product_originalfilename = #{productOriginalfilename}
+		,product_savedfilename = #{productSavedfilename}
+	</if>
+WHERE
+	product_code = #{productCode}
+</update>
+
 </mapper>

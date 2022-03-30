@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
 			</a>
 		</div>
 		<div class="col-6 mt-3 mb-3 d-flex justify-content-end">
-			<input type="button" class="btn btn-primary" value="로그아웃">
+			<input type="button" class="btn btn-primary" value="로그아웃" onclick="location.href='/admin/loginForm'">
 		</div>
 	</div>
 	
@@ -95,45 +96,19 @@
 					    	</tr>
 					  	</thead>
 					  	<tbody>
-						    <tr>
-						    	<th scope="row">
-						    		<input class="form-check-input" type="checkbox">
-						    	</th>
-						    	<td>
-						    		<img src="/resources/images/450x300.jpg" style="width: 50px; height: 50px;">
-						    		상품명
-					    		</td>
-						    	<td>상품코드</td>
-						    	<td>판매가</td>
-						    	<td>상품분류</td>
-						    	<td>상품등록일</td>
-						    </tr>
-						    <tr>
-						    	<th scope="row">
-						    		<input class="form-check-input" type="checkbox">
-						    	</th>
-						    	<td>
-						    		<img src="/resources/images/450x300.jpg" style="width: 50px; height: 50px;">
-						    		상품명
-					    		</td>
-						    	<td>상품코드</td>
-						    	<td>판매가</td>
-						    	<td>상품분류</td>
-						    	<td>상품등록일</td>
-						    </tr>
-					    	<tr>
-						    	<th scope="row">
-						    		<input class="form-check-input" type="checkbox">
-						    	</th>
-						    	<td>
-						    		<img src="/resources/images/450x300.jpg" style="width: 50px; height: 50px;">
-						    		상품명
-					    		</td>
-						    	<td>상품코드</td>
-						    	<td>판매가</td>
-						    	<td>상품분류</td>
-						    	<td>상품등록일</td>
-						    </tr>
+						    <c:forEach var="p" items="${list}">
+								<tr>
+									<td><input type="checkbox" value="${p.productCode }" class="form-check-input"></td>
+									<td>
+										<img alt="${p.productOriginalfilename}" src="/product/loadImage?fileName=${p.productSavedfilename }" style="width: 50px; height: 50px;">
+										<a href="/product/updateForm?productCode=${p.productCode }" style="text-decoration: none;">${p.productName }</a>
+									</td>
+									<td>${p.productCode }</td>
+									<td>${p.productPrice }</td>
+									<td>${p.productCategory }</td>
+									<td>${p.productRegdate }</td>
+								</tr>
+							</c:forEach>
 					  	</tbody>
 					</table>
 				</div>

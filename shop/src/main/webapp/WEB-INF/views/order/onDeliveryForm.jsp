@@ -20,7 +20,7 @@
 			</a>
 		</div>
 		<div class="col-6 mt-3 mb-3 d-flex justify-content-end">
-			<input type="button" class="btn btn-primary" value="로그아웃">
+			<input type="button" class="btn btn-primary" value="로그아웃" onclick="location.href='/admin/loginForm'">
 		</div>
 	</div>
 	
