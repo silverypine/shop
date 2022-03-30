@@ -1,5 +1,8 @@
 package com.kissco.shop.dao;
 
-public interface AdminMapper {
+import com.kissco.shop.vo.AdminVO;
 
+public interface AdminMapper {
+	public int join(AdminVO admin);
+	public AdminVO searchAdmin(String adminId);
 }

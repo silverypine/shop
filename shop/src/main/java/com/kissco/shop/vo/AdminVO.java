@@ -7,6 +7,6 @@ public class AdminVO {
 
 	private String adminId;
 	private String adminPw;
-	private String adiminNm;
+	private String adminNm;
 	private String adminIndate;
 }
