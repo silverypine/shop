@@ -5,4 +5,30 @@
 
 <mapper namespace="com.kissco.shop.dao.AdminMapper">
 
+<!-- 판매자 회원가입 -->
+<insert id="join" parameterType="admin">
+insert into
+	shop_admin(
+		admin_id
+		,admin_pw
+	 	,adimin_nm
+	 )values(
+		#{adminId}
+		,#{adminPw}
+		,#{adminNm}
+	)
+</insert>
+
+<select id="searchAdmin" parameterType="string" resultType="admin">
+	select
+		admin_id as adminId
+		,admin_pw as adminPw
+		,adimin_nm as adminNm
+		,to_char(admin_indate, 'yyyy-MM-dd') as adminIndate
+	from
+		shop_admin
+	where
+		admin_id = #{adminId}
+</select>
+
 </mapper>
