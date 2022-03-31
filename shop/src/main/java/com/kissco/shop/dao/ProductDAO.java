@@ -1,6 +1,7 @@
 package com.kissco.shop.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,5 +61,29 @@ public class ProductDAO {
 			e.printStackTrace();
 		}
 		return cnt;
+	}
+	
+	public int deleteProduct(List<ProductVO> productCodeList2) {
+		
+		int cnt = 0;
+		try {
+			ProductMapper mapper = ss.getMapper(ProductMapper.class);
+			cnt = mapper.deleteProduct(productCodeList2);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+	
+	public ArrayList<ProductVO> prouductCodeSearchList(List<ProductVO> productCodeList2) {
+		
+		ArrayList<ProductVO> list = null;
+		try {
+			ProductMapper mapper = ss.getMapper(ProductMapper.class);
+			list = mapper.prouductCodeSearchList(productCodeList2);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 }
