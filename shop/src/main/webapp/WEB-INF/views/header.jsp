@@ -1,7 +1,15 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<head>
 
+</head>
+<body>
+	<c:if test="${not empty sessionScope.loginId}">
+		<h1>${sessionScope.loginId }님 환영합니다!</h1>
+	</c:if>
 <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
             <!-- LOGO -->
             <a class="navbar-brand flex-grow-1" href="/"><span>SHOPPING MALL</span></a>
@@ -15,17 +23,22 @@
                 </form>
               </div>
             <!-- LOGIN,JOIN / POCKET,MYPAGE,LOGOUT -->
+				
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-2">
-                      <div class="navbar-nav ml-auto">
-
-                      <a class="dropdown-item" href="/member/joinForm">join</a>
-                      <a class="dropdown-item" href="/member/loginForm">login</a>
-              
-                      <!-- <a class="dropdown-item" data-toggle="modal" href="#registerModal">마이페이지</a> -->
-                      <a class="dropdown-item" href="/cart/listForm">cart</a>
-                      <a class="dropdown-item" href="/member/mypageForm">mypage</a>
-                      <a class="dropdown-item" href="logoutAction.jsp">logout</a>
-                      </div>
+                	<c:choose>
+                	
+					<c:when test="${empty sessionScope.loginId}">	
+	                    <a class="dropdown-item" href="/member/joinForm">join</a>
+	                    <a class="dropdown-item" href="/member/loginForm">login</a>
+              		</c:when>
+              		
+					<c:otherwise>
+	                    <a class="dropdown-item" href="/cart/listForm">cart</a>
+	                    <a class="dropdown-item" href="/member/mypageForm">mypage</a>
+	                    <a class="dropdown-item" href="/member/logout">logout</a>
+	                </c:otherwise>
+	                
+					</c:choose>
                 </ul>
                 <!-- CART PICTRUE -->
                 <!-- <form class="d-flex">
@@ -115,3 +128,5 @@
             
         </div>
     </header>
+</body>
+</html>

@@ -4,5 +4,37 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kissco.shop.dao.MemberMapper">
+<insert id="join" parameterType="member">
+insert into
+	shop_member(
+		member_id
+		,member_pw
+		,member_nm
+		,member_phone
+		,member_email
+		,member_address
+	)values(
+		#{memberId}
+		,#{memberPw}
+		,#{memberNm}
+		,#{memberPhone}
+		,#{memberEmail}
+		,#{memberAddress}
+	)
+</insert>
+<select id="searchMember" parameterType="string" resultType="member">
+	select
+		member_id as memberId
+		,member_pw as memberPw
+		,member_nm as memberNm
+		,member_phone as memberPhone
+		,member_email as memberEmail
+		,member_address as memberAddress
+		,to_char(member_indate, 'yyyy-MM-dd') as memberIndate
+	from
+		shop_member
+	where
+		member_id = #{memberId}
+</select>
 
 </mapper>
