@@ -23,7 +23,7 @@ insert into
 	select
 		admin_id as adminId
 		,admin_pw as adminPw
-		,adimin_nm as adminNm
+		,admin_nm as adminNm
 		,to_char(admin_indate, 'yyyy-MM-dd') as adminIndate
 	from
 		shop_admin

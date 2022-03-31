@@ -1,6 +1,8 @@
 package com.kissco.shop.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -55,12 +57,10 @@ public class ProductService {
 		String path = "";
 		ProductVO result = dao.OneProduct(product.getProductCode());
 		String savedFile = result.getProductSavedfilename();
-		System.out.println(result.getProductSavedfilename());
 		
 		if(!upload.isEmpty()) {
 			if(savedFile != null) {
-				boolean check = FileService.deleteFile(uploadPath+"/"+savedFile);
-				System.out.println(check);
+				FileService.deleteFile(uploadPath+"/"+savedFile);
 			}
 			String originalFileName = upload.getOriginalFilename();
 			String savedFileName = FileService.saveFile(upload, uploadPath);
@@ -78,5 +78,30 @@ public class ProductService {
 			path = "redirect:/product/updateForm?productCode="+product.getProductCode();
 		}
 		return path;
+	}
+	
+	public void deleteProduct(List<String> productCodeList) {
+		
+		List<ProductVO> productCodeList2 = new ArrayList<ProductVO>();
+		
+		for (int i = 0; i < productCodeList.size(); i++) {
+			ProductVO product = new ProductVO();
+			product.setProductCode(productCodeList.get(i));
+			productCodeList2.add(product);
+		}
+		
+		ArrayList<ProductVO> resultList = dao.prouductCodeSearchList(productCodeList2);
+		
+		ArrayList<String> savedFileList = new ArrayList<String>();
+		for (int i = 0; i < resultList.size(); i++) {
+			savedFileList.add(resultList.get(i).getProductSavedfilename());
+		}
+		 
+		dao.deleteProduct(productCodeList2);
+		
+		for (int i = 0; i < resultList.size(); i++) {
+			FileService.deleteFile(uploadPath+"/"+savedFileList.get(i));
+		}
+		
 	}
 }

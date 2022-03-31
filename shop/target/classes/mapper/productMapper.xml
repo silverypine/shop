@@ -83,4 +83,32 @@ WHERE
 	product_code = #{productCode}
 </update>
 
+<delete id="deleteProduct" parameterType="java.util.List">
+	<foreach collection="list" item="item" index="index" separator=";" open="DECLARE BEGIN" close="; END;">
+		DELETE FROM
+			shop_product
+		WHERE
+			product_Code = #{item.productCode}
+	</foreach>
+</delete>
+
+<select id="prouductCodeSearchList" resultType="product" parameterType="java.util.List">
+SELECT
+	product_code as productCode
+	,product_category as productCategory
+	,product_name as productName
+	,product_price as productPrice
+	,product_stock as productStock
+	,product_originalfilename as productOriginalfilename
+	,product_savedfilename as productSavedfilename
+	,product_regdate as productRegdate
+	,product_content as productContent
+FROM
+	shop_product
+WHERE product_code in
+<foreach collection="list" item="item" open="(" close=")" separator=",">
+	#{item.productCode}
+</foreach>
+</select>
+
 </mapper>

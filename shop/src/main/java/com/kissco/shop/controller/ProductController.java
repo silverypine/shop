@@ -3,6 +3,7 @@ package com.kissco.shop.controller;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kissco.shop.service.ProductService;
@@ -69,5 +72,16 @@ public class ProductController {
 	@RequestMapping(value = "/product/update", method = RequestMethod.POST)
 	public String update(ProductVO product, MultipartFile upload) {
 		return sv.updateProduct(product, upload);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/product/delete", method = RequestMethod.GET)
+	public boolean delete(@RequestParam(value = "productCodeList[]", defaultValue = "") List<String> productCodeList) {
+		if (productCodeList.isEmpty()) {
+			return false;
+		} else {
+			sv.deleteProduct(productCodeList);
+			return true;
+		}
 	}
 }
