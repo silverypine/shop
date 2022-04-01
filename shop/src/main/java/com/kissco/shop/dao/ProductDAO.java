@@ -75,6 +75,7 @@ public class ProductDAO {
 		return cnt;
 	}
 	
+	// 상품 삭제 (다중 처리)
 	public ArrayList<ProductVO> prouductCodeSearchList(List<ProductVO> productCodeList2) {
 		
 		ArrayList<ProductVO> list = null;

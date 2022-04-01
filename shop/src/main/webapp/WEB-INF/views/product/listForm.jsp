@@ -12,8 +12,11 @@
 <script src="/resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 
+// 상품코드(pk)를 저장할 전역배열 생성
 let productCodeArr = [];
 
+// 전체 선택 체크박스를 클릭했을 때 상품코드를 배열에 저장
+// 클릭 해제 했을 때는 배열에서 삭제
 $(function () {
 	$("#checkAll").click(function() {
 		if ($("#checkAll").is(":checked")) {
@@ -33,6 +36,8 @@ $(function () {
 	});
 });
 
+// 체크박스를 하나씩 클릭 했을 때 상품코드를 배열에 저장
+// 클릭해제 했을 때는 해당 상품코드를 찾아서 삭제
 $(function () {
 	$.each($("input[name=cbx]"), function (i) {
 		$(this).on("click", function () {
@@ -48,6 +53,7 @@ $(function () {
 	});
 });
 
+// 삭제 버튼 클릭시 전역배열을 담아서 컨트롤러에 전송
 $(function () {
 	$("#deleteBtn").on("click", function () {
 		$.ajax({

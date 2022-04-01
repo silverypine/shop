@@ -83,6 +83,7 @@ WHERE
 	product_code = #{productCode}
 </update>
 
+<!-- 여러개의 상품 다중처리시의 삭제 방법 -->
 <delete id="deleteProduct" parameterType="java.util.List">
 	<foreach collection="list" item="item" index="index" separator=";" open="DECLARE BEGIN" close="; END;">
 		DELETE FROM
@@ -92,6 +93,7 @@ WHERE
 	</foreach>
 </delete>
 
+<!-- 여러 이미지를 삭제하기위해 상품리스트를 조회하는 과정 -->
 <select id="prouductCodeSearchList" resultType="product" parameterType="java.util.List">
 SELECT
 	product_code as productCode
