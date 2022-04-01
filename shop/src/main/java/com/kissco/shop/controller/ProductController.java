@@ -74,6 +74,7 @@ public class ProductController {
 		return sv.updateProduct(product, upload);
 	}
 	
+	// 상품 삭제 (다중 처리)
 	@ResponseBody
 	@RequestMapping(value = "/product/delete", method = RequestMethod.GET)
 	public boolean delete(@RequestParam(value = "productCodeList[]", defaultValue = "") List<String> productCodeList) {

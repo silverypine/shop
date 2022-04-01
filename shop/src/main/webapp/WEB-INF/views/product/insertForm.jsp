@@ -9,6 +9,18 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="/resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+function formCheck(){
+	let productName = $("#productName").val();
+	
+	if(productName == ""){
+		alert("상품명을 입력해주세요");
+		return false;
+	}
+	
+	return true;
+}
+</script>
 </head>
 <body>
 
@@ -61,7 +73,7 @@
 		</div>
 		
 		<div class="col-10">
-			<form action="/product/insert" method="post" enctype="multipart/form-data">
+			<form action="/product/insert" method="post" enctype="multipart/form-data" onsubmit="return formCheck();">
 				<h4 class="mb-3">상품 등록</h4>
 			  	<div class="col mb-3">
 			    	<label for="productName" class="form-label">상품명</label>
