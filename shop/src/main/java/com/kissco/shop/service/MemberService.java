@@ -13,6 +13,7 @@ public class MemberService {
 
 	@Autowired
 	private MemberDAO dao;
+	
 	@Autowired
 	private HttpSession ss;
 	
@@ -46,4 +47,25 @@ public class MemberService {
 		ss.removeAttribute("loginId");
 		return "redirect:/";
 	}
+	
+	//회원정보수정
+		public MemberVO searchMember() {
+			return dao.searchMember((String)ss.getAttribute("loginId"));
+		}
+	
+	//회원정보 업데이트
+	public String memberUpdate(MemberVO member) {
+		String path = "";
+		String loginId = (String)ss.getAttribute("loginId");
+		member.setMemberId(loginId);
+		int cnt = dao.memberUpdate(member); //업데이트가 실행된 횟수 성공 시 1
+		
+		if (cnt > 0) {
+			path = "redirect:/member/mypageForm";
+		} else {
+			path = "redirect:/member/infoForm";
+		}
+		return path;
+	}
+	
 }
