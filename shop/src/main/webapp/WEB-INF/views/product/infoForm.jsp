@@ -43,7 +43,7 @@
 		<input type="hidden" id="productCode" value="${product.productCode }">
 			<!-- 상품이미지 -->
 			<div class="flex-shrink-0">
-				<img class="productImg" src="/product/loadImage?fileName=${product.productSavedfilename }" alt="${product.productOriginalfilename }" />
+				<img class="productImg" src="/product/loadImage?fileName=${product.productSavedfilename }" alt="${product.productOriginalfilename }" width=300px height=300px/>
 			</div>
 			<!-- 상품설명 -->
 			<div class="d-flex align-content-center flex-wrap">
