@@ -33,7 +33,7 @@
 					<div class="col mb-5">
 		                <div class="card h-100" id="product" Onclick="location.href='/product/infoForm?productCode=${p.productCode}'">
 							<!-- Product image-->
-							<figure class="image is-450x300"><img class="card-img-top" alt="${p.productOriginalfilename}" src="/product/loadImage?fileName=${p.productSavedfilename }"></figure>
+							<img class="card-img-top" alt="${p.productOriginalfilename}" src="/product/loadImage?fileName=${p.productSavedfilename }" width=450px, height=300px>
 							<!-- Product details-->
 							<div class="card-body p-4">
 							    <div class="text-center">
