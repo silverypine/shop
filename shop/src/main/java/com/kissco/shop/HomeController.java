@@ -24,6 +24,7 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	
 	//메인페이지(상품목록)
 	@Autowired
 	private ProductService sv;
