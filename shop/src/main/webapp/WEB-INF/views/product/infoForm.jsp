@@ -40,29 +40,34 @@
 <jsp:include page="../header.jsp"></jsp:include>
 	<div class="container m-5 pt-5" style="text-align:center;">
 		<div class="d-flex justify-content-center">
+		<input type="hidden" id="productCode" value="${product.productCode }">
 			<!-- 상품이미지 -->
 			<div class="flex-shrink-0">
-				<img class="productImg" src="/resources/images/450x300.jpg" alt="상품이미지" />
+				<img class="productImg" src="/product/loadImage?fileName=${product.productSavedfilename }" alt="${product.productOriginalfilename }" />
 			</div>
 			<!-- 상품설명 -->
 			<div class="d-flex align-content-center flex-wrap">
 				<!-- 폼태그 -->
-				<form class="d-flex flex-column bd-highlight">
+				<form class="d-flex flex-column bd-highlight" action="/cart/listForm">
 					<div class="d-flex justify-content-around mb-3">
 						<span class="bd-highlight">상품명</span>
-						<input type="hidden" id="productName" name="productName">선택한 상품명
+						<input type="hidden" id="productName" name="productName">${product.productName }
 					</div>
 					<div class="d-flex justify-content-around mb-3">
 						<span class="bd-highlight">판매가</span>
-						<input type="hidden" id="productPrice" name="productPrice">상품의 가격
+						<input type="hidden" id="productPrice" name="productPrice">${product.productPrice }
 					</div>
 					<div class="d-flex justify-content-around mb-3">
 						<span class="bd-highlight">수량</span>
 						<input type="number" id="productStoke" name="productStoke" style="width:50px;">
 					</div>
+						<div class="d-flex justify-content-around mb-3">
+						<span class="bd-highlight">상품설명</span>
+						<input type="hidden" id="productStock" name="productStock">${product.productStock }
+					</div>
 					<div class="d-flex justify-content-around mb-3 px-3">
 				    	<input type="submit" class="btn btn-primary mx-1" value="장바구니 담기">
-				    	<input type="submit" class="btn btn-primary" value="구매하기">
+				    	<input type="button" class="btn btn-primary" value="구매하기" onclick="location.href='/order/listForm'">
 				  	</div>
 				</form>
 			</div>
