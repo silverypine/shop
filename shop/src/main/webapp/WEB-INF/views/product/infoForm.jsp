@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -49,6 +50,9 @@
 			<div class="d-flex align-content-center flex-wrap">
 				<!-- 폼태그 -->
 				<form class="d-flex flex-column bd-highlight" action="/cart/listForm">
+					<input type="hidden" id="productCode" name="productCode">
+					<input type="hidden" id="productCategory" name="productCategory">
+					
 					<div class="d-flex justify-content-around mb-3">
 						<span class="bd-highlight">상품명</span>
 						<input type="hidden" id="productName" name="productName">${product.productName }
@@ -59,15 +63,20 @@
 					</div>
 					<div class="d-flex justify-content-around mb-3">
 						<span class="bd-highlight">수량</span>
-						<input type="number" id="productStoke" name="productStoke" style="width:50px;">
+						<input type="number" id="productStoke" name="productStoke" style="width:50px;" min="1">
 					</div>
-						<div class="d-flex justify-content-around mb-3">
+					
+					<input type="hidden" id="productOriginalfilename" name="productOriginalfilename">
+					<input type="hidden" id="productSavedfilename" name="productSavedfilename">
+					<input type="hidden" id="productRegdate" name="productRegdate">
+					
+					<div class="d-flex justify-content-around mb-3">
 						<span class="bd-highlight">상품설명</span>
-						<input type="hidden" id="productStock" name="productStock">${product.productStock }
+						<input type="hidden" id="productContent" name="productContent">${product.productContent }
 					</div>
 					<div class="d-flex justify-content-around mb-3 px-3">
 				    	<input type="submit" class="btn btn-primary mx-1" value="장바구니 담기">
-				    	<input type="button" class="btn btn-primary" value="구매하기" onclick="location.href='/order/listForm'">
+				    	<input type="button" class="btn btn-primary" value="구매하기" onclick="location.href='/member/paymentForm?productCode=${product.productCode}'">
 				  	</div>
 				</form>
 			</div>
@@ -93,7 +102,7 @@
 		$('.bigPictureWrapper').css("display", "flex").show();
 		
 		$('.bigPicture')
-		.html("<img src='/resources/images/450x300.jpg'>")
+		.html("<img src='/product/loadImage?fileName=${product.productSavedfilename }'")
 		.animate({width:'100%', height:'100%'}, 1000);
 	}
 	

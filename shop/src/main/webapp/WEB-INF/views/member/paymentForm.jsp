@@ -37,12 +37,14 @@
                           </tr>
                         </thead>
                         <tbody>
+                        <c:forEach>
                           <tr>
                             <td class="tg-1">image list</td>
                             <td class="tg-0">product name list</td>
                             <td class="tg-0">purchase quantity list</td>
                             <td class="tg-0">product price list</td>
                           </tr>
+                         </c:forEach>
                           <tr>
                             <td class="tg-1">image</td>
                             <td class="tg-0">product name</td>
