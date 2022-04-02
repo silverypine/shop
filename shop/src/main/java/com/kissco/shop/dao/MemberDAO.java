@@ -32,4 +32,17 @@ public class MemberDAO {
 		}
 		return member;
 	}
+	
+	//회원정보 업데이트
+	public int memberUpdate(MemberVO member) {
+		int cnt = 0;
+		try {
+			MemberMapper mapper = ss.getMapper(MemberMapper.class);
+			cnt = mapper.memberUpdate(member);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+	
 }

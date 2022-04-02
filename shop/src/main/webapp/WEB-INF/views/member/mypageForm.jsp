@@ -64,24 +64,7 @@
                             <td class="tg-0">purchase quantity</td>
                             <td class="tg-0">product price</td>
                           </tr>
-                          <tr>
-                            <td class="tg-1">image</td>
-                            <td class="tg-0">product name</td>
-                            <td class="tg-0">purchase quantity</td>
-                            <td class="tg-0">product price</td>
-                          </tr>
-                          <tr>
-                            <td class="tg-1">image</td>
-                            <td class="tg-0">product name</td>
-                            <td class="tg-0">purchase quantity</td>
-                            <td class="tg-0">product price</td>
-                          </tr>
-                          <tr>
-                            <td class="tg-1">image</td>
-                            <td class="tg-0">product name</td>
-                            <td class="tg-0">purchase quantity</td>
-                            <td class="tg-0">product price</td>
-                          </tr>
+
                     </tbody>
                     </table>
                 </div>

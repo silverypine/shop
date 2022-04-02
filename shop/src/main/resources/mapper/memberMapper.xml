@@ -37,4 +37,16 @@ insert into
 		member_id = #{memberId}
 </select>
 
+<update id="memberUpdate" parameterType="member">
+update
+	shop_member
+set
+	member_nm = #{memberNm}
+	,member_phone = #{memberPhone}
+	,member_email = #{memberEmail}
+	,member_address = #{memberAddress}
+where
+	member_id = #{memberId}
+</update>
+
 </mapper>
