@@ -39,7 +39,9 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/product/infoForm", method = RequestMethod.GET)
-	public String infoForm() {
+	public String infoForm(Model model, String productCode) {
+		ProductVO product = sv.OneProduct(productCode);
+		model.addAttribute("product", product);
 		return "product/infoForm";
 	}
 	
