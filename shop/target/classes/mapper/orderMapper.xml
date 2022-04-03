@@ -39,4 +39,111 @@ AND
 ORDER BY
 	o.order_indate DESC
 </select>
+
+<select id="adminOrderList" resultType="hashMap">
+SELECT
+    o.order_indate as orderIndate
+    ,od.order_code as orderCode
+    ,o.member_id as memberId
+    ,sum(od.orderdetail_quantity * p.product_price) as totalPrice
+    ,o.order_status as orderStatus
+FROM
+    shop_order o
+    ,shop_orderdetail od
+    ,shop_product p
+WHERE
+    o.order_code = od.order_code
+AND
+    od.product_code = p.product_code
+GROUP BY
+    od.order_code
+    ,o.order_indate
+    ,o.member_id
+    ,o.order_status
+ORDER BY
+    o.order_indate DESC
+</select>
+
+<select id="adminOrderDetail" parameterType="int" resultType="hashmap">
+SELECT
+    p.product_savedfilename as productSavedfilename
+    ,p.product_name as productName
+    ,od.orderdetail_quantity as orderdetailQuantity
+    ,p.product_price as productPrice
+FROM
+	shop_product p
+	,shop_order o
+    ,shop_orderdetail od
+WHERE
+    o.order_code = od.order_code
+AND
+    p.product_code = od.product_code
+AND
+    od.order_code = #{orderCode}
+ORDER BY
+	o.order_indate DESC
+</select>
+
+<select id="paymentList" resultType="hashMap">
+SELECT
+    o.order_indate as orderIndate
+    ,od.order_code as orderCode
+    ,o.member_id as memberId
+    ,sum(od.orderdetail_quantity * p.product_price) as totalPrice
+    ,o.order_status as orderStatus
+FROM
+    shop_order o
+    ,shop_orderdetail od
+    ,shop_product p
+WHERE
+    o.order_code = od.order_code
+AND
+    od.product_code = p.product_code
+AND
+	o.order_status = '결제완료'
+GROUP BY
+    od.order_code
+    ,o.order_indate
+    ,o.member_id
+    ,o.order_status
+ORDER BY
+    o.order_indate DESC
+</select>
+
+<select id="deliveryReadyList" resultType="hashMap">
+SELECT
+    o.order_indate as orderIndate
+    ,od.order_code as orderCode
+    ,o.member_id as memberId
+    ,sum(od.orderdetail_quantity * p.product_price) as totalPrice
+    ,o.order_status as orderStatus
+FROM
+    shop_order o
+    ,shop_orderdetail od
+    ,shop_product p
+WHERE
+    o.order_code = od.order_code
+AND
+    od.product_code = p.product_code
+AND
+	o.order_status = '배송준비중'
+GROUP BY
+    od.order_code
+    ,o.order_indate
+    ,o.member_id
+    ,o.order_status
+ORDER BY
+    o.order_indate DESC
+</select>
+
+<update id="paking" parameterType="java.util.List">
+	<foreach collection="list" item="item" index="index" separator=";" open="DECLARE BEGIN" close="; END;">
+		UPDATE
+			shop_order
+		SET
+			order_status = '배송준비중'
+		WHERE
+			order_code = #{item.orderCode}
+	</foreach>
+</update>
 </mapper>
