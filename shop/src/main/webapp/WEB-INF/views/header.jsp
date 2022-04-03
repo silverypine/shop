@@ -5,9 +5,9 @@
 
 </head>
 <body>
-	<c:if test="${not empty sessionScope.loginId}">
+	<%-- <c:if test="${not empty sessionScope.loginId}">
 		<h1>${sessionScope.loginId }님 환영합니다!</h1>
-	</c:if>
+	</c:if> --%>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">

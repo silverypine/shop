@@ -9,6 +9,7 @@
 		<typeAlias type="com.kissco.shop.vo.ProductVO" alias="product" />
 		<typeAlias type="com.kissco.shop.vo.CartVO" alias="cart" />
 		<typeAlias type="com.kissco.shop.vo.OrderVO" alias="order" />
+		<typeAlias type="com.kissco.shop.vo.OrderDetailVO" alias="orderdetail" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/adminMapper.xml" />
