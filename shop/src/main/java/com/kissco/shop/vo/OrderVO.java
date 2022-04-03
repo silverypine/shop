@@ -7,6 +7,6 @@ public class OrderVO {
 
 	private int orderCode;
 	private String memberId;
-	private String productCode;
+	private String orderStatus;
 	private String orderIndate;
 }
