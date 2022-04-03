@@ -28,8 +28,6 @@ public class CartController {
 		model.addAttribute("cartList", cartList);
 		ArrayList<HashMap<String, Object>> cartProductList = sv.cartProductList();
 		model.addAttribute("cartProductList", cartProductList);
-		int sum = sv.sumProductPrice(cartProductList);
-		model.addAttribute("sum", sum);
 		return "cart/listForm";
 	}
 	
@@ -59,7 +57,6 @@ public class CartController {
 		} else {
 			sv.createOrder();
 			ArrayList<OrderVO> orderList = sv.orderList();
-			System.out.println(orderList);
 			sv.insertOrderDetailList(cartQuantityList, productCodeList, orderList);
 			sv.deleteCart(cartCodeList);
 			return true;

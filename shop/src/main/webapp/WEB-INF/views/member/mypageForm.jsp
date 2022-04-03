@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!doctype html>
@@ -30,42 +31,31 @@
         <header class="bg-light py-3">
             <div class="container px-4 px-lg-5">
                 <div class="memberinfo">
-                    <button type="button" onclick="location.href='/member/infoForm'" class="btn btn-outline-dark btn-sm" >member info</button>
+                    <button type="button" onclick="location.href='/member/infoForm'" class="btn btn-outline-dark btn-sm" >회원정보수정</button>
                 </div>
                 <div class="row gx-4 gx-lg-4 row-cols-2 row-cols-md-6  justify-content-center">
                     <table class="tg">
                         <thead>
                           <tr>
-                            <th class="tg-0" colspan="4">payment list</th>
+                            <th class="tg-0" colspan="4">결제 내역</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td class="tg-1">image list</td>
-                            <td class="tg-0">product name list</td>
-                            <td class="tg-0">purchase quantity list</td>
-                            <td class="tg-0">product price list</td>
+                            <th class="tg-1">주문번호</th>
+                            <th class="tg-0">결제일</th>
+                            <th class="tg-0">결제상태</th>
                           </tr>
-                          <tr>
-                            <td class="tg-1">image</td>
-                            <td class="tg-0">product name</td>
-                            <td class="tg-0">purchase quantity</td>
-                            <td class="tg-0">product price</td>
-                          </tr>
-                          <tr>
-                            <td class="tg-1">image</td>
-                            <td class="tg-0">product name</td>
-                            <td class="tg-0">purchase quantity</td>
-                            <td class="tg-0">product price</td>
-                          </tr>
-                          <tr>
-                            <td class="tg-1">image</td>
-                            <td class="tg-0">product name</td>
-                            <td class="tg-0">purchase quantity</td>
-                            <td class="tg-0">product price</td>
-                          </tr>
-
-                    </tbody>
+                        	 <c:forEach var="o" items="${orderList}">
+								<tr>
+									<td>
+										<a href="/member/paymentForm?orderCode=${o.orderCode }" style="color: blue">${o.orderCode }</a>
+									</td>
+									<td>${o.orderIndate }</td>
+									<td>${o.orderStatus }</td>
+								</tr>
+							</c:forEach> 
+                    	</tbody>
                     </table>
                 </div>
             </div>

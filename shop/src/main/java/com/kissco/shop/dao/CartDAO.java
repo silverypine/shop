@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.kissco.shop.vo.CartVO;
 import com.kissco.shop.vo.OrderDetailVO;
 import com.kissco.shop.vo.OrderVO;
+import com.kissco.shop.vo.ProductVO;
 
 @Repository
 public class CartDAO {
@@ -88,4 +89,5 @@ public class CartDAO {
 			e.printStackTrace();
 		}
 	}
+	
 }

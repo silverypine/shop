@@ -1,10 +1,14 @@
 package com.kissco.shop.dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kissco.shop.vo.MemberVO;
+import com.kissco.shop.vo.OrderVO;
 
 @Repository
 public class MemberDAO {
@@ -45,4 +49,25 @@ public class MemberDAO {
 		return cnt;
 	}
 	
+	public ArrayList<OrderVO> orderList(String memberId) {
+		ArrayList<OrderVO> list = null;
+		try {
+			OrderMapper mapper = ss.getMapper(OrderMapper.class);
+			list = mapper.orderList(memberId);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public ArrayList<HashMap<String, Object>> opodJoinList(OrderVO order) {
+		ArrayList<HashMap<String, Object>> list = null;
+		try {
+			OrderMapper mapper = ss.getMapper(OrderMapper.class);
+			list = mapper.opodJoinList(order);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
