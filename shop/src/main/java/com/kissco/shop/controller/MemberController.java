@@ -1,5 +1,8 @@
 package com.kissco.shop.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kissco.shop.vo.MemberVO;
+import com.kissco.shop.vo.OrderVO;
 import com.kissco.shop.service.MemberService;
 
 @Controller
@@ -34,12 +38,16 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/member/mypageForm", method = RequestMethod.GET)
-	public String mypageForm() {
+	public String mypageForm(Model model) {
+		ArrayList<OrderVO> orderList = sv.orderList();
+		model.addAttribute("orderList", orderList);
 		return "member/mypageForm";
 	}
 	
 	@RequestMapping(value = "/member/paymentForm", method = RequestMethod.GET)
-	public String mypage() {
+	public String detail(int orderCode, Model model) {
+		ArrayList<HashMap<String, Object>> list = sv.opodJoinList(orderCode);
+		model.addAttribute("list", list);
 		return "member/paymentForm";
 	}
 	

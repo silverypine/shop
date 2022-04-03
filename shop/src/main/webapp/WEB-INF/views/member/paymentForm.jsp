@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!doctype html>
@@ -20,6 +21,15 @@
         .tg-1{width: 200px; height: 100px;}
         .memberinfo{text-align: right; margin-right: 20px; margin-bottom: 10px;}
     </style>
+    <script type="text/javascript">
+    	$(function () {
+    		let tp = 0;
+    		$.each($(".tp"), function (index) {
+    			tp += parseInt($(this).val());
+			});
+    		$(".to").html(tp + "원");
+		});
+    </script>
     <title>payment</title>
   </head>
   <body>
@@ -37,53 +47,30 @@
                           </tr>
                         </thead>
                         <tbody>
-                        <c:forEach>
                           <tr>
-                            <td class="tg-1">image list</td>
-                            <td class="tg-0">product name list</td>
-                            <td class="tg-0">purchase quantity list</td>
-                            <td class="tg-0">product price list</td>
+                            <th class="tg-1">이미지</th>
+                            <th class="tg-0">상품명</th>
+                            <th class="tg-0">구매수량</th>
+                            <th class="tg-0">결제금액</th>
                           </tr>
-                         </c:forEach>
-                          <tr>
-                            <td class="tg-1">image</td>
-                            <td class="tg-0">product name</td>
-                            <td class="tg-0">purchase quantity</td>
-                            <td class="tg-0">product price</td>
-                          </tr>
-                          <tr>
-                            <td class="tg-1">image</td>
-                            <td class="tg-0">product name</td>
-                            <td class="tg-0">purchase quantity</td>
-                            <td class="tg-0">product price</td>
-                          </tr>
-                          <tr>
-                            <td class="tg-1">image</td>
-                            <td class="tg-0">product name</td>
-                            <td class="tg-0">purchase quantity</td>
-                            <td class="tg-0">product price</td>
-                          </tr>
-                          <tr>
-                            <td class="tg-1">image</td>
-                            <td class="tg-0">product name</td>
-                            <td class="tg-0">purchase quantity</td>
-                            <td class="tg-0">product price</td>
-                          </tr>
+                          <c:forEach var="list" items="${list}">
+								<tr>
+									<td>
+										<img src="/product/loadImage?fileName=${list.PRODUCTSAVEDFILENAME}" style="width: 50px; height: 50px;">
+									</td>
+									<td>${list.PRODUCTNAME}</td>
+									<td>${list.ORDERDETAILQUANTITY}</td>
+									<td>
+										<input type="hidden" value="${list.ORDERDETAILQUANTITY * list.PRODUCTPRICE}" class="tp">
+										${list.ORDERDETAILQUANTITY * list.PRODUCTPRICE}
+									</td>
+								</tr>
+							</c:forEach>
                     </tbody>
                     </table>
                 </div>
-                <div class="member">
-                    <p>member name<span>&nbsp&nbsp&nbsp&nbsp&nbsp홍길동</span></p>
-                    <p>member phone<span>&nbsp&nbsp&nbsp&nbsp010123456789</span></p>
-                    <p>member address<span>&nbsp&nbspSEOUL</span></p>
-                </div>
                 <div class="total">
-                    <p>total price<span>&nbsp&nbsp얼마입니다</span></p>
-                </div>
-                <div class="payment">
-                    <div class="d-grid gap-2 col-4 mx-auto">
-                        <button class="btn btn-outline-dark" type="submit" onclick="location='payment.jsp'">PAYMENT</button>
-                    </div>
+                    <p>결제 금액: <span class="to">0원</span></p>
                 </div>
             </div>
         </header>

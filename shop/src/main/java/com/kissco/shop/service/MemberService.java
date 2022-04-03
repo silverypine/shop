@@ -1,5 +1,8 @@
 package com.kissco.shop.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.kissco.shop.dao.MemberDAO;
 import com.kissco.shop.vo.MemberVO;
+import com.kissco.shop.vo.OrderVO;
 
 @Service
 public class MemberService {
@@ -68,4 +72,14 @@ public class MemberService {
 		return path;
 	}
 	
+	public ArrayList<OrderVO> orderList() {
+		return dao.orderList((String)ss.getAttribute("loginId"));
+	}
+	
+	public ArrayList<HashMap<String, Object>> opodJoinList(int orderCode) {
+		OrderVO order = new OrderVO();
+		order.setOrderCode(orderCode);
+		order.setMemberId((String)ss.getAttribute("loginId"));
+		return dao.opodJoinList(order);
+	}
 }

@@ -30,6 +30,7 @@
 let cartCodeArr = [];
 let cartQuantityArr = [];
 let productCodeArr = [];
+let totalPrice = 0;
 
 //
 $(function () {
@@ -81,21 +82,45 @@ $(function () {
 				cartCodeArr.splice(index, 1);
 				console.log(cartCodeArr);
 			}
-			if (index2 == -1) {
+			if ($(this).is(":checked") == true) {
+					cartQuantityArr.push($(this).next().val());
+					productCodeArr.push($(this).next().next().val());
+					console.log(cartQuantityArr);
+					console.log(productCodeArr);
+					totalPrice += parseInt($(this).prev().val());
+				}
+			if ($(this).is(":checked") == false) {
+				if (index2 != -1 || index3 != -1) {
+						cartQuantityArr.splice(index2, 1);
+						productCodeArr.splice(index3, 1);
+						console.log(cartQuantityArr);
+						console.log(productCodeArr);
+						totalPrice -= parseInt($(this).prev().val());
+					}
+				}
+			$("#totalprice").html(totalPrice + "원");
+			/* if (index2 == -1) {
 				cartQuantityArr.push($(this).next().val());
 				console.log(cartQuantityArr);
 			} else {
-				cartQuantityArr.splice(index, 1);
+				cartQuantityArr.splice(index2, 1);
 				console.log(cartQuantityArr);
 			}
 			if (index3 == -1) {
 				productCodeArr.push($(this).next().next().val());
 				console.log(productCodeArr);
 			} else {
-				productCodeArr.splice(index, 1);
+				productCodeArr.splice(index3, 1);
 				console.log(productCodeArr);
-			}
+			} */
 		});
+	});
+});
+
+//
+$(function () {
+	$("#input[name=cbx]").on("click", function () {
+		
 	});
 });
 
@@ -136,6 +161,7 @@ $(function () {
 			,data: {
 				"cartQuantityList" : cartQuantityArr
 				,"productCodeList" : productCodeArr
+				,"cartCodeList" : cartCodeArr
 			}
 			,dataType : "json"
 			,success : function (data) {
@@ -186,26 +212,24 @@ $(function () {
 						<c:forEach var="cp" items="${cartProductList}">
 							<tr>
 								<td>
+									<input type="hidden" value="${cp.CARTQUANTITY * cp.PRODUCTPRICE}">
 									<input type="checkbox" value="${cp.CARTCODE }" class="form-check-input" name="cbx">
-									<input type="hidden" value="${cp.CARTQUANTITY}" name="cartQuantity">
-									<input type="hidden" value="${cp.PRODUCTCODE}" name="productCode">
+									<input type="hidden" value="${cp.CARTQUANTITY}">
+									<input type="hidden" value="${cp.PRODUCTCODE}">
 								</td>
 								<td>
 									<img alt="${cp.PRODUCTORIGINALFILENAME}" src="/product/loadImage?fileName=${cp.PRODUCTSAVEDFILENAME}" style="width: 50px; height: 50px;">
 								</td>
 								<td>${cp.PRODUCTNAME}</td>
-								<td>
-									
-									${cp.CARTQUANTITY}
-								</td>
-								<td>${cp.PRODUCTPRICE}</td>
+								<td>${cp.CARTQUANTITY}</td>
+								<td>${cp.CARTQUANTITY * cp.PRODUCTPRICE}</td>
 							</tr>
 						</c:forEach>
                   </tbody>
                   </table>
               </div>
               <div class="total">
-                  <p>전체 결제 금액:<span>${sum }원</span></p>
+                  <p>전체 결제 금액:<span id="totalprice">0원</span></p>
               </div>
               <div class="order">
                   <div class="d-grid gap-2 col-4 mx-auto">

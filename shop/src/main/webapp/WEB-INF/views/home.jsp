@@ -41,7 +41,7 @@
 							        <h5 class="fw-bolder">${p.productName }</h5>
 							        <!-- Product price-->
 							       <!--  <span class="text-muted text-decoration-line-through">$20.00</span> -->
-							        ${p.productPrice }
+							        ${p.productPrice } 원
 					            </div>
 					        </div>
 					    </div>
