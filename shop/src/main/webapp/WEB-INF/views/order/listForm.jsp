@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -81,51 +82,23 @@
 					<table class="table table-striped table-hover table-bordered">
 						<thead class="table-light">
 					    	<tr>
-								<th scope="col">
-									<input class="form-check-input" type="checkbox">
-								</th>
 							    <th scope="col">주문일</th>
 							    <th scope="col">주문코드</th>
 						      	<th scope="col">주문자</th>
-						      	<th scope="col">상품명</th>
-						      	<th scope="col">수량</th>
 						      	<th scope="col">결제금액</th>
+						      	<th scope="col">주문상태</th>
 					    	</tr>
 					  	</thead>
 					  	<tbody>
-						    <tr>
-						    	<th scope="row">
-						    		<input class="form-check-input" type="checkbox">
-						    	</th>
-						    	<td>주문일</td>
-						    	<td>주문코드</td>
-						    	<td>주문자</td>
-						    	<td>상품명</td>
-						    	<td>수량</td>
-						    	<td>결제금액</td>
-						    </tr>
-						    <tr>
-						    	<th scope="row">
-						    		<input class="form-check-input" type="checkbox">
-						    	</th>
-						    	<td>주문일</td>
-						    	<td>주문코드</td>
-						    	<td>주문자</td>
-						    	<td>상품명</td>
-						    	<td>수량</td>
-						    	<td>결제금액</td>
-						    </tr>
-					    	<tr>
-						    	<th scope="row">
-						    		<input class="form-check-input" type="checkbox">
-						    	</th>
-						    	<td>주문일</td>
-						    	<td>주문코드</td>
-						    	<td>주문자</td>
-						    	<td>상품명</td>
-						    	<td>수량</td>
-						    	<td>결제금액</td>
-						    </tr>
+						    <c:forEach var="list" items="${list}">
+								<tr>
+									<td>${list.ORDERINDATE}</td>
+									<td><a href="/order/detail?orderCode=${list.ORDERCODE}" style="text-decoration: none;">${list.ORDERCODE}</a></td>
+									<td>${list.MEMBERID}</td>
+									<td>${list.TOTALPRICE}</td>
+									<td>${list.ORDERSTATUS}</td>
+								</tr>
+							</c:forEach>
 					  	</tbody>
 					</table>
 				</div>

@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,6 +10,71 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="/resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+
+let orderCodeArr = [];
+
+$(function () {
+	$("#checkAll").click(function() {
+		if ($("#checkAll").is(":checked")) {
+			$("input[name=cbx]").prop("checked", true);
+			$.each($("input[name=cbx]"), function (index) {
+				orderCodeArr.push($(this).val());
+				console.log(orderCodeArr);
+			});
+		}
+		else {
+			$("input[name=cbx]").prop("checked", false) 
+			$.each($("input[name=cbx]"), function (index) {
+				orderCodeArr.pop($(this).val());
+				console.log(orderCodeArr);
+			});
+		}
+	});
+});
+
+$(function () {
+	$.each($("input[name=cbx]"), function (i) {
+		$(this).on("click", function () {
+			let index = orderCodeArr.indexOf($(this).val());
+			if (index == -1) {
+				orderCodeArr.push($(this).val());
+				console.log(orderCodeArr);
+			} else {
+				orderCodeArr.splice(index, 1);
+				console.log(orderCodeArr);
+			}
+		});
+	});
+});
+
+$(function () {
+	$("#pakingBtn").on("click", function () {
+		$.ajax({
+			url: "/order/paking"
+			,type: "get"
+			,contentType: "application/json; charset=utf-8"
+			,data: {
+				"orderCodeList" : orderCodeArr
+			}
+			,dataType : "json"
+			,success : function (data) {
+				if (data) {
+					alert("처리 성공");
+					window.location.href = "/order/pakingForm";
+				} else {
+					alert("처리 실패");
+					window.location.href = "/order/beforePaymentForm";
+				}
+			}
+			,error : function (e) {
+				console.log(e);
+			}
+		});
+	});
+});
+
+</script>
 </head>
 <body>
 
@@ -65,7 +131,7 @@
 			
 			<div class="list-group list-group-horizontal mb-5">
 			  	<a href="/order/beforePaymentForm" class="list-group-item list-group-item-action active" aria-current="true">
-				    결제전
+				    결제완료
 					<br>0
 			  	</a>
 			  	<a href="/order/pakingForm" class="list-group-item list-group-item-action">
@@ -95,7 +161,7 @@
 			    	<input type="button" class="btn btn-primary" value="검색">
 			  	</div>
 			  	<div class="col mb-3">
-			  		<input type="button" class="btn btn-primary" value="결제확인">
+			  		<input type="button" class="btn btn-primary" value="배송준비중 처리" id="pakingBtn">
 			  	</div>
 			</div>
 			
@@ -105,50 +171,26 @@
 						<thead class="table-light">
 					    	<tr>
 								<th scope="col">
-									<input class="form-check-input" type="checkbox">
+									<input class="form-check-input" type="checkbox" id="checkAll">
 								</th>
 							    <th scope="col">주문일</th>
 							    <th scope="col">주문코드</th>
 						      	<th scope="col">주문자</th>
-						      	<th scope="col">상품명</th>
-						      	<th scope="col">수량</th>
 						      	<th scope="col">결제금액</th>
+						      	<th scope="col">주문상태</th>
 					    	</tr>
 					  	</thead>
 					  	<tbody>
-						    <tr>
-						    	<th scope="row">
-						    		<input class="form-check-input" type="checkbox">
-						    	</th>
-						    	<td>주문일</td>
-						    	<td>주문코드</td>
-						    	<td>주문자</td>
-						    	<td>상품명</td>
-						    	<td>수량</td>
-						    	<td>결제금액</td>
-						    </tr>
-						    <tr>
-						    	<th scope="row">
-						    		<input class="form-check-input" type="checkbox">
-						    	</th>
-						    	<td>주문일</td>
-						    	<td>주문코드</td>
-						    	<td>주문자</td>
-						    	<td>상품명</td>
-						    	<td>수량</td>
-						    	<td>결제금액</td>
-						    </tr>
-					    	<tr>
-						    	<th scope="row">
-						    		<input class="form-check-input" type="checkbox">
-						    	</th>
-						    	<td>주문일</td>
-						    	<td>주문코드</td>
-						    	<td>주문자</td>
-						    	<td>상품명</td>
-						    	<td>수량</td>
-						    	<td>결제금액</td>
-						    </tr>
+						    <c:forEach var="list" items="${list}">
+								<tr>
+									<td><input type="checkbox" value="${list.ORDERCODE }" class="form-check-input" name="cbx"></td>
+									<td>${list.ORDERINDATE}</td>
+									<td><a href="/order/detail?orderCode=${list.ORDERCODE}" style="text-decoration: none;">${list.ORDERCODE}</a></td>
+									<td>${list.MEMBERID}</td>
+									<td>${list.TOTALPRICE}</td>
+									<td>${list.ORDERSTATUS}</td>
+								</tr>
+							</c:forEach>
 					  	</tbody>
 					</table>
 				</div>
