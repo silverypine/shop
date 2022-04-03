@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.kissco.shop.dao.MemberDAO;
 import com.kissco.shop.vo.MemberVO;
 import com.kissco.shop.vo.OrderVO;
+import com.kissco.shop.vo.ProductVO;
 
 @Service
 public class MemberService {
@@ -82,4 +83,6 @@ public class MemberService {
 		order.setMemberId((String)ss.getAttribute("loginId"));
 		return dao.opodJoinList(order);
 	}
+	
+	
 }

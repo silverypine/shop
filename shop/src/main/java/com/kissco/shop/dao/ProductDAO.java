@@ -87,4 +87,74 @@ public class ProductDAO {
 		}
 		return list;
 	}
+	
+	
+	
+	
+	public ArrayList<ProductVO> category1() {
+		ArrayList<ProductVO> list = null;
+		try {
+			ProductMapper mapper = ss.getMapper(ProductMapper.class);
+			list = mapper.category1();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	
+	public ArrayList<ProductVO> category2() {
+		ArrayList<ProductVO> list = null;
+		try {
+			ProductMapper mapper = ss.getMapper(ProductMapper.class);
+			list = mapper.category2();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public ArrayList<ProductVO> category3() {
+		ArrayList<ProductVO> list = null;
+		try {
+			ProductMapper mapper = ss.getMapper(ProductMapper.class);
+			list = mapper.category3();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public ArrayList<ProductVO> category4() {
+		ArrayList<ProductVO> list = null;
+		try {
+			ProductMapper mapper = ss.getMapper(ProductMapper.class);
+			list = mapper.category4();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public ArrayList<ProductVO> category5() {
+		ArrayList<ProductVO> list = null;
+		try {
+			ProductMapper mapper = ss.getMapper(ProductMapper.class);
+			list = mapper.category5();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public ArrayList<ProductVO> category6() {
+		ArrayList<ProductVO> list = null;
+		try {
+			ProductMapper mapper = ss.getMapper(ProductMapper.class);
+			list = mapper.category6();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

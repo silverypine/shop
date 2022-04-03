@@ -56,68 +56,68 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-4 row-cols-2 row-cols-md-6  justify-content-center">
                 <div class="col mb-2">
-                    <div class="card h-100" id="category" Onclick="location.href='category.jsp'">
+                    <div class="card h-100" id="categor1" onclick="location.href='/category1'">
                         <!-- Product details-->
                         <div class="card-body px-lg-1">
                             <div class="text-center">
                                 <!-- Category name-->
-                                <h5 class="fw-bolder">Category1</h5>
+                                <h5 class="fw-bolder">아우터</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-2">
-                    <div class="card h-100" id="category" Onclick="location.href='category.jsp'">
+                    <div class="card h-100" id="category2" onclick="location.href='/category2'">
                         <!-- Product details-->
                         <div class="card-body px-2">
                             <div class="text-center">
                                 <!-- Category name-->
-                                <h5 class="fw-bolder">Category2</h5>
+                                <h5 class="fw-bolder">상의</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-2">
-                    <div class="card h-100">
+                    <div class="card h-100" id="category3" onclick="location.href='/category3'">
                         <!-- Product details-->
                         <div class="card-body px-2">
                             <div class="text-center">
                                 <!-- Category name-->
-                                <h5 class="fw-bolder">Category3</h5>
+                                <h5 class="fw-bolder">하의</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-2">
-                    <div class="card h-100">
+                    <div class="card h-100" id="category4" onclick="location.href='/category4'">
                         <!-- Product details-->
                         <div class="card-body px-2">
                             <div class="text-center">
                                 <!-- Category name-->
-                                <h5 class="fw-bolder">Category4</h5>
+                                <h5 class="fw-bolder">모자</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-2">
-                    <div class="card h-100">
+                    <div class="card h-100" id="category5" onclick="location.href='/category5'">
                         <!-- Product details-->
                         <div class="card-body px-2">
                             <div class="text-center">
                                 <!-- Category name-->
-                                <h5 class="fw-bolder">Category5</h5>
+                                <h5 class="fw-bolder">신발</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col mb-2">
-                    <div class="card h-100">
+                    <div class="card h-100" id="category6" onclick="location.href='/category6'">
                         <!-- Product details-->
                         <div class="card-body px-2">
                             <div class="text-center">
                                 <!-- Category name-->
-                                <h5 class="fw-bolder">Category6</h5>
+                                <h5 class="fw-bolder">기타</h5>
                             </div>
                         </div>
                     </div>

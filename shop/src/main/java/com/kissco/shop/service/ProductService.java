@@ -109,4 +109,28 @@ public class ProductService {
 		}
 		
 	}
+	
+	public ArrayList<ProductVO> category1() {
+		return dao.category1();
+	}
+	
+	public ArrayList<ProductVO> category2() {
+		return dao.category2();
+	}
+	
+	public ArrayList<ProductVO> category3() {
+		return dao.category3();
+	}
+	
+	public ArrayList<ProductVO> category4() {
+		return dao.category4();
+	}
+	
+	public ArrayList<ProductVO> category5() {
+		return dao.category5();
+	}
+	
+	public ArrayList<ProductVO> category6() {
+		return dao.category6();
+	}
 }
