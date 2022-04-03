@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kissco.shop.vo.MemberVO;
 import com.kissco.shop.vo.OrderVO;
+import com.kissco.shop.vo.ProductVO;
 
 @Repository
 public class MemberDAO {
@@ -70,4 +71,5 @@ public class MemberDAO {
 		}
 		return list;
 	}
+	
 }
